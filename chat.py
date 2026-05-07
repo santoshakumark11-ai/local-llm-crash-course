@@ -35,7 +35,7 @@ async def on_message(message: cl.Message):
 def on_chat_start():
     cl.user_session.set("history", [])
     global llm
-    llm = AutoModelForCausalLM.mro(
+    llm = AutoModelForCausalLM.from_pretrained(
         "MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF", model_file="Mistral-7B-Instruct-v0.3.Q6_K.gguf", **{'threads': 10, 'batch_size': 512}
     )
     print("A new chat session has started!")
